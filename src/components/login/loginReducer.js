@@ -14,14 +14,12 @@ export const LoginReducer = (state = _Constants.initialState, action) => {
 function fetchloginBegin(state, action) {
     return {
         ...state,
-        loading: true
     };
 }
 
 function fetchloginSuccess(state, action) {
     return {
         ...state,
-        loading: false,
         ...action.payload
     };
 }
@@ -29,7 +27,6 @@ function fetchloginSuccess(state, action) {
 function fetchloginFailure(state, action) {
     return {
         ...state,
-        loading: false,
         error: action.payload
     };
 }

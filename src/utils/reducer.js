@@ -1,10 +1,10 @@
 import {combineReducers } from 'redux';
-import mainReducer from './mainReducer';
 import { LoginReducer } from '../components/login/loginReducer';
+import { listReducer } from '../components/list/listReducer';
 
 const rootReducer = combineReducers({
-    mainReducer: mainReducer,
     login : LoginReducer,
+    user : listReducer,
 });
 
 export default rootReducer;

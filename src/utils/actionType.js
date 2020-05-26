@@ -1,1 +1,0 @@
-export const SET_MAIN_REDUCER='SET_MAIN_REDUCER';

@@ -1,5 +1,5 @@
 import React from "react";
-import * as actions from './loginAction';
+import { login } from './loginAction';
 import { connect } from 'react-redux';
 
 
@@ -22,8 +22,9 @@ class LoginComponent extends React.Component {
 
 
   handleSubmit = (event) => {
-    this.props.login(this.state);
     event.preventDefault();
+    this.props.dispatch(login(this.state));
+    this.props.history.push(`/list`)
   }
 
 
@@ -48,9 +49,9 @@ class LoginComponent extends React.Component {
     
   });
 
-  const mapDispatchToProps = dispatch => ({
-    login: (payload) => dispatch(actions.login(payload)),
-  });
+  // const mapDispatchToProps = dispatch => ({
+  //   login: (payload) => dispatch(actions.login(payload)),
+  // });
   
   
-  export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);
+  export default connect(mapStateToProps)(LoginComponent);

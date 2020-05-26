@@ -2,19 +2,23 @@ import history from '../../utils/history';
 import { setToken } from '../../utils/storage';
 import loginService from '../../components/login/loginService';
 import * as _Constants from "./loginConstants";
+const res = { 
+    token : '1234'
+}
 export const login = (payload) => dispatch => {
-    dispatch(loginBegin(true));
-    loginService.login(payload).then(res => {
-        if (res) {
-            dispatch(loginSuccess(true));
-            setToken(res.token);
-            // localStorage.setItem(`token`, '1234')
-            history.push('/list');
-        } else {
-            dispatch(loginFailure(false));
-            history.push('/login');
-        }
-    });
+    dispatch(loginSuccess(true));
+    setToken(res.token);
+    // loginService.login(payload).then(res => {
+    //     if (res) {
+    //         dispatch(loginSuccess(true));
+    //         setToken(res.token);
+    //         // localStorage.setItem(`token`, '1234')
+    //         history.push('/list');
+    //     } else {
+    //         dispatch(loginFailure(false));
+    //         history.push('/login');
+    //     }
+    // });
 }
 
 function loginBegin() {

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
+import { submitedData } from './listAction';
 
 
 class ListFormComponent extends React.Component {
@@ -28,10 +29,14 @@ class ListFormComponent extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+      console.log(event);
+    this.props.dispatch(submitedData(this.state));
+    this.props.history.push(`/list`)
   }
 
 
   render() {
+        console.log(this.props);
           return (
             <div className="card">
             <form onSubmit={this.handleSubmit}>
@@ -68,9 +73,9 @@ class ListFormComponent extends React.Component {
     
   });
 
-  const mapDispatchToProps = dispatch => ({
-    // login: (payload) => dispatch(actions.login(payload)),
-  });
+//   const mapDispatchToProps = dispatch => ({
+//     submitedData: (payload) => dispatch(actions.submitedData(payload)),
+//   });
   
   
-  export default connect(mapStateToProps, mapDispatchToProps)(ListFormComponent);
+  export default connect(mapStateToProps)(ListFormComponent);
